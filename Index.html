@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>Stray Kids Fanpage</title>
+        <link rel="stylesheet" href = "Styles.css">
+
+        <style>
+            .zoom-buttons {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1000;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="zoom-buttons">
+            <button onclick="zoomIn()">+</button>
+            <button onclick="zoomOut()">-</button>
+        </div>
+
+        <header>
+            <h1>Stray Kids</h1>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="Members.html" alt = "Stray Kids">About Members</a></li>
+                    <li><a href="Discography.html">Discography</a></li>
+                    <li><a href="BiasQuiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <br>
+        
+        <div class="slideshow">
+            <img class="mySlides" src="images/SK_Image1.jpg" alt="Stray Kids Image 1">
+            <img class="mySlides" src="images/SK_Image3.jpg" alt="Stray Kids Image 2">
+            <img class="mySlides" src="images/stray-kids-billboard-featured-image-1600x838.jpg" alt="Stray Kids Billboard">
+        </div>
+
+        <script>
+            var slideIndex = 0;
+            showSlides();
+        
+            function showSlides() {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1
+                }
+                slides[slideIndex - 1].style.display = "block";
+                setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
+
+            //for increasing font size
+            function zoomIn() {
+                var body = document.body;
+                var currentSize = parseFloat(window.getComputedStyle(body, null).getPropertyValue('font-size'));
+                body.style.fontSize = (currentSize + 1) + 'px';
+            }
+
+            // for decreasing font size
+            function zoomOut() {
+                var body = document.body;
+                var currentSize = parseFloat(window.getComputedStyle(body, null).getPropertyValue('font-size'));
+                body.style.fontSize = (currentSize - 1) + 'px';
+            }
+
+        </script>
+
+
+        <section>
+            <div class="container">
+            <p><br>Stray Kids, a South Korean boy group formed under JYP Entertainment, made their debut in 2018.<br> 
+                Comprising eight members - Bangchan, Lee Know, Changbin, Han, Hyunjin, Seungmin, Felix, and I.N. - their rapid ascent to fame can be attributed to their unique musical style.<br>
+                Their distinctive approach, which blends various genres and rhythmic patterns, aligns with the emerging trend of noise music within the K-pop scene. Notably, their discography is a testament to their versatility, 
+                constantly exploring a broad spectrum of genres and styles. This showcases not only their penchant for experimentation but also their innovative spirit.
+            </p>
+            </div>
+        </section>
+
+        <!-- Stray Kids offical social media info and handles included in a table  -->
+        <div class = "table-container">
+            <input type="checkbox" id="toggle-checkbox" class="toggle-checkbox">
+            <label for="toggle-checkbox" class="toggle-label">Toggle Table</label>
+            <table border = "1">
+                <colgroup>
+                    <col span="2"> <!-- Make 2 columns -->
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th colspan = "2">Stray Kids Social Media & Offical Website</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="https://straykids.jype.com/">Stray Kids Offical Webpage</a></td>
+                        <td>JYPE | Stray Kids</td>
+
+                    </tr>
+                    <tr>
+                        <td><a href ="https://www.youtube.com/c/StrayKids">Stray Kids Youtube Channel</a></td>
+                        <td>@Stray Kids</td>
+                    </tr>
+                    <tr>
+                        <td><a href = "https://twitter.com/Stray_Kids">Stray Kids Twitter</a></td>
+                        <td>@Stray_Kids</td>
+                    </tr>
+
+                    <tr>
+                        <td><a href = "https://www.instagram.com/realstraykids/">Stray Kids Instagram</a></td>
+                        <td>@realstraykids</td>
+
+                    </tr>
+                    <tr>
+                        <td><a href = "https://www.tiktok.com/@jypestraykids?">Stray Kids TikTok</a></td>
+                        <td>@jypestraykids</td>
+                    </tr>
+                    <tr>
+                        <td><a href = "https://www.facebook.com/JYPEStrayKids/">Stray Kids Facebook</a></td>
+                        <td>@JYP | Stray Kids</td>
+                    </tr>
+                    <tr>
+                        <td><a href ="https://www.weibo.com/straykids">Stray Kids Weibo</a></td>
+                        <td>@StrayKidsOfficial</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+    <br>
+    <p class = "notice">All credit goes to <a href = "https://kprofiles.com/stray-kids-members-profile/" target = "Kprofile">KProfile</a> and <a href = "https://straykids.jype.com/" target = "straykids.jype">straykids.jyp</a>
+        <br>Check out those two sources for more information about the group and its' members.
+    </p>
+</html>

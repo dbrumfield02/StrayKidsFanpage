@@ -1,0 +1,242 @@
+body {
+    background-color: black; /* Replace with your desired background color B00000 for red*/
+    color: #FFFFFF; /* White text */
+    font-family: "Oswald", sans-serif; /* Use Oswald font */
+}
+    .container {
+        text-align: center; /* Center align content inside container */
+    }
+
+    .section {
+        margin-left: 30px; /* Adjust the left margin to move the sections to the right */
+    }
+    .sectionList {
+        list-style-type: none; /* Remove default bullet points */
+        padding: 0; /* Remove default padding */
+        margin: 0; /* Remove default margin */
+        margin-left: 30px;
+    }
+    .sectionList li {
+        margin-bottom: 20px; /* Add spacing between list items */
+    }
+
+    .memberInfo {
+        margin-left: 30px;
+        text-align: center; /* Aligns the text of the h2 element to the center */
+    }
+    .memberInfo ul {
+        list-style-type: none; /* Remove default bullet points */
+        padding: 0; /* Remove default padding */
+        margin: 0; /* Remove default margin */
+    }
+
+    .table-container {
+        margin: 0 auto;
+        width: 90%;
+        border: 1px solid #ccc;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px; /* Add padding for better readability */
+        border: 1px solid #ddd; /* Add border to cells */
+        text-align: center;
+    }
+
+    .toggle-checkbox {
+        display: none;
+    }
+
+    /* Label for the checkbox */
+    .toggle-label {
+        display: block;
+        background-color: #FF0000;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    /* Collapsible table */
+    .toggle-checkbox:checked + .toggle-label + table {
+        display: none;
+    }
+
+    .toggle-checkbox:not(:checked) + .toggle-label + table {
+        display: table;
+    }
+    
+    .slideshow {
+        position: relative;
+        max-width: 100%;
+        height: 400px;
+        overflow: hidden;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .slideshow img {
+        max-height: 100%;
+        max-width: 100%;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        
+    }
+
+    .mySlides {
+        display: none
+    }
+
+
+img {
+    max-width: 100%; /* Ensures the image doesn't exceed the width of its container */
+    height: auto; /* Maintains the aspect ratio of the image */
+    display: block; /* Ensures the image is displayed as a block element */
+    margin: auto; /* Centers the image horizontally */
+}
+
+h1 {
+    text-align: center; /* Aligns the text of the h1 element to the center */
+    color: white;
+    border-bottom: 3px solid #FF0000; /* Red underline */
+    font-family: "Oswald", sans-serif; /* Use Oswald font */
+    padding-bottom: 10px; /* Add padding at the bottom */
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #FF0000; /* Background color of the navigation bar */
+    overflow: hidden;
+    text-align: center;
+}
+
+.navbar li {
+    display: inline-block
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover {
+    background-color: #ddd; /* Background color on hover */
+    color: black;
+}
+
+/* Styles for Dropdown */
+.tracklist-dropdown {
+    /* display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 50%; /* Move the dropdown to the center horizontally 
+    transform: translateX(-50%); /* Adjust to center it perfectly */
+
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 130px;
+    width: 300px;
+    box-shadow: 0px 8px 16px 0px rgb(0, 0, 0, 0, 2);
+    z-index: 1;
+    right: 100px;
+    text-align: center; 
+}
+
+.tracklist-dropdown ul {
+    list-style-type:none;
+    padding: 0;
+}
+
+.tracklist-dropdown ol {
+    list-style-type: decimal; /* Change list-style-type to decimal for numbered list */
+    padding-left: 20px; /* Add left padding to align numbers */
+}
+
+.tracklist-dropdown li {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: #333;
+}
+
+/* Styles for Button */
+.tracklist-btn {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    display: block; /* Ensure the button is displayed as a block element */
+    margin-top: 10px; /* Add margin to separate it from the album name */
+}
+
+/* Show dropdown on hover */
+li:hover .tracklist-dropdown {
+    display: block;
+}
+
+/* Change the color of HTML links */
+a {
+    color: #FFFFFF; /* Change to your desired color */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Change the color of HTML links when hovered over */
+a:hover {
+    color: #ff0000e3; /* Change to your desired color */
+}
+
+.centered-link {
+    text-align: center;
+}
+
+.album {
+    text-align: center
+}
+
+.album img {
+    border: 1px solid #f9f9f9;
+    border-style: double;
+    border-width: 4px;
+}
+
+.album ul {
+    padding: 0;
+    margin: 0;
+}
+
+.notice {
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.backButton {
+    background-color: #ff0000; /* Change to your desired color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding for better appearance */
+}
+
+.backButtonContainer {
+    text-align: center; /* Center align the content */
+    
+}
+
+.zoom-buttons {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}

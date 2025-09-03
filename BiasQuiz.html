@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<meta charset="UTF-8">
+<title>Stray Kids Bias Quiz</title>'
+<link rel="stylesheet" href = "Styles.css">'
+</head>
+<body>
+    <h1>Stray Kids Quiz: Who Should Your Bias Be?</h1>
+
+    <div id = "quiz"></div>
+    <button onclick = "calculateResults()">Submit</button>
+
+    <script>
+    const questions = [ {
+            question: "What two qualities sounds most appealing to you?",
+            options: ["Alturistic and a natural leader", "Fun-loving and eccentric", "Sweet and good-natured,", "Emotionally expressive and passionate", "Playful and a moodmaker","Sweet and a radiant optimiist ", "Diligent and supportive, ", "Gentle-hearted and playful"],
+        },
+        {
+        question: "What position do you prefer idols in?",
+        options: ["Rapper", "dancer", "vocalist", "visual"],
+        },
+
+        {
+        question: "What's your favorite type of music?",
+        options: ["Hip-hop", "Pop", "Rock", "EDM"]
+        },
+
+        {
+        question: "What is your favorite color from these options?",
+        options: ["Mint", "red", "blue","hot-pink", "purple",  "black and/or white", ]
+        },
+
+        {
+        question: "What sounds most nice to do during vaction?", 
+        options: ["bungee jumping", "eating delicious food and watching a play", "going on a trip with friends", "going to a water park and eating delicious food", "watching fun movies", "taking pics while wearing animal costumes", "eating watermelon at a valley and playing", ]
+        }
+    ];
+
+    function createQuestionElement(question, options, index) {
+    const container = document.createElement('div');
+    container.innerHTML = `<p>${question}</p>`;
+    options.forEach((option, i) => {
+        const radioBtn = document.createElement('input');
+        radioBtn.type = 'radio';
+        radioBtn.name = `option-${index}`;
+        radioBtn.value = option;
+        container.appendChild(radioBtn);
+        container.appendChild(document.createTextNode(option));
+        container.appendChild(document.createElement('br'));
+    });
+    return container;
+}
+
+function displayQuiz() {
+    const quizContainer = document.getElementById('quiz');
+    questions.forEach((questionObj, index) => {
+        const questionElement = createQuestionElement(questionObj.question, questionObj.options, index);
+        quizContainer.appendChild(questionElement);
+    });
+}
+
+    function runQuiz() {
+    const userAnswers = [];
+    questions.forEach((questionObj, index) => {
+        const radioBtns = document.getElementsByName(`option-${index}`);
+        let selectedOption = null;
+        radioBtns.forEach(btn => {
+            if (btn.checked) {
+                selectedOption = btn.value;
+            }
+        });
+        userAnswers.push(selectedOption);
+    });
+    return userAnswers;
+}
+
+
+    function calculateBias(userAnswers) {
+    // Sample scoring logic, you can adjust this based on your preferences
+    let scores = {
+        "Bang Chan": 0,
+        "Lee Know": 0,
+        "Changbin": 0,
+        "Hyunjin": 0,
+        "Han": 0,
+        "Felix": 0,
+        "Seungmin": 0,
+        "I.N": 0
+    };
+
+    for (let i = 0; i < userAnswers.length; i++) {
+                // Scoring logic based on user answers
+                switch (i) {
+                    case 0: // Quality
+                        switch (userAnswers[i]) {
+                            case "Altruistic and a natural leader":
+                                scores["Bang Chan"]++;
+                                break;
+                            case "Fun-loving and eccentric":
+                                scores["Lee Know"]++;
+                                break;
+                            case "Sweet and good-natured,":
+                                scores["Changbin"]++;
+                                break;
+                            case "Emotionally expressive and passionate":
+                                scores["Hyunjin"]++;
+                                break;
+                            case "Playful and a moodmaker":
+                                scores["Han"]++;
+                                break;
+                            case "Sweet and a radiant optimist":
+                                scores["Felix"]++;
+                                break;
+                            case "Diligent and supportive":
+                                scores["Seungmin"]++;
+                                break;
+                            case "Gentle-hearted and playful":
+                                scores["I.N"]++;
+                                break;
+                        }
+                        break;
+                    case 1: // Position
+                        switch (userAnswers[i]) {
+                            case "Rapper":
+                                scores["Bang Chan"]++;
+                                scores["Changbin"]++;
+                                scores["Han"]++;
+                                break;
+                            case "Dancer":
+                                scores["Lee Know"]++;
+                                scores["Felix"]++;
+                                break;
+                            case "Vocalist":
+                                scores["Seungmin"]++;
+                                scores["I.N"]++;
+                                break;
+                            case "Visual":
+                                scores["Hyunjin"]++;
+                                break;
+                        }
+                        break;
+                    case 2: // Music
+                        // Add your scoring logic based on the user's music preference
+                            switch (userAnswers[i]) {
+                                case "Hip-hop":
+                                    scores["Bangchan"]++
+                                    scores["Changbin"]++
+                                    break;
+                                case "Pop":
+                                    scores["Hyunjin"]++
+                                    scores["Felix"]++
+                                    break;
+                                case "Rock":
+                                    scores["I.N"]++
+                                    scores["Seungmin"]++
+                                    break;
+                                case "EDM":
+                                    scores["Han"]++
+                                    scores["Lee Know"]++
+                                    break;
+                            }
+                        break;
+                    case 3: // Color
+                        switch (userAnswers[i]) {
+                            case "Mint":
+                                scores["I.N"]++;
+                                break;
+                            case "Red":
+                                scores["Bang Chan"]++;
+                                break;
+                            case "Blue":
+                                scores["Lee Know"]++;
+                                break;
+                            case "Hot-pink":
+                                scores["Felix"]++;
+                                break;
+                            case "Purple":
+                                scores["Seungmin"]++;
+                                break;
+                            case "Black and/or white":
+                                scores["Changbin"]++;
+                                scores["Hyunjin"]++;
+                                break;
+                        }
+                        break;
+                    case 4:
+                        switch (userAnswers[i]) {
+                            case "bungee jumping":
+                                scores["Bang Chan"]++;
+                                break;
+                            case "eating delicious food and watching a play":
+                                scores["Lee Know"]++;
+                                break;
+                            case "going on a trip with friends":
+                                scores["Changbin"]++;
+                                scores["Felix"]++;
+                                break;
+                            case "going to a water park and eating delicious food":
+                                scores["Hyunjin"]++;
+                                break;
+                            case "watching fun movies":
+                                scores["Han"]++;
+                                break;
+                            case "taking pics while wearing animal costumes":
+                                scores["Seungmin"]++;
+                                break;
+                            case "eating watermelon at a valley and playing":
+                                scores["I.N"]++;
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            let bias = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            return bias;
+}
+
+function calculateResults() {
+    const userAnswers = runQuiz();
+
+    if (userAnswers.some(answer => answer === null)) {
+        alert("Please answer all questions before submitting.");
+        return; // Exit function early
+    }
+    
+    const bias = calculateBias(userAnswers);
+    const resultContainer = document.createElement('div');
+    resultContainer.innerHTML = "Your Stray Kids bias should be " + bias + "!";
+    document.body.appendChild(resultContainer);
+}
+
+    window.onload = displayQuiz;
+    </script>
+</body>
+
+<div class = "backButtonContainer">
+    <a href="Index.html">
+        <button class = "backButton">Main Page</button>
+    </a>
+</div>
+
+</html>
